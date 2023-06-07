@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c8316c26-990e-4f94-839b-eee71e417ccf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Proxy/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../Proxy/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WeatherBot/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../WeatherBot/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WeatherBot/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/../WeatherBot/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WeatherBot/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../WeatherBot/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WeatherBot/internal/bot/bot.go" beforeDir="false" afterPath="$PROJECT_DIR$/../WeatherBot/internal/bot/bot.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WeatherBot/internal/entity/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/../WeatherBot/internal/entity/User.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WeatherBot/internal/repository/postgres/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../WeatherBot/internal/repository/postgres/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WeatherBot/internal/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/../WeatherBot/internal/service/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WeatherBot/internal/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../WeatherBot/internal/service/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WeatherBot/pkg/database/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/../WeatherBot/pkg/database/database.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WeatherBot/pkg/database/migrate.go" beforeDir="false" afterPath="$PROJECT_DIR$/../WeatherBot/pkg/database/migrate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WeatherBot/pkg/logger/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/../WeatherBot/pkg/logger/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/.idea/library.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../library/.idea/library.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../library/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../library/internal/dto/author.go" beforeDir="false" afterPath="$PROJECT_DIR$/../library/internal/dto/author.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../telegram-bot/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../telegram-bot/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../telegram-bot/cmd/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../telegram-bot/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../telegram-bot/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test/.idea/vcs.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../Program Files/Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2Qs14Y060kcr8U6BayWUyvUq36D" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "C:/Users/Admin"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="kiosk" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/aalmat/koi" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="kiosk" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <package value="github.com/aalmat/koi" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>
