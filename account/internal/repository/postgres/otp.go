@@ -4,8 +4,12 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"github.com/KbtuGophers/kiosk/account/internal/domain/activity"
 	"github.com/KbtuGophers/kiosk/account/internal/domain/secret"
+	"github.com/KbtuGophers/kiosk/account/internal/domain/user"
 	"github.com/jmoiron/sqlx"
+	"strings"
+	"time"
 )
 
 type OtpRepository struct {
@@ -13,9 +17,9 @@ type OtpRepository struct {
 }
 
 func (o *OtpRepository) Create(ctx context.Context, data secret.Entity) error {
-	fmt.Println("data to create: ", o.db)
+
 	query := `
-	INSERT INTO otps 
+	INSERT INTO otps 	
     (id, key, secret, phone_number, send_at, attempts, status, confirmed_at) 
 	VALUES ($1,$2, $3, $4, $5, $6, $7, $8)
 	`
@@ -50,22 +54,124 @@ func (o *OtpRepository) GetByKey(ctx context.Context, key string) (data secret.E
 	return
 }
 
-func (o *OtpRepository) DeleteExpiredTokens(otpInterval string) {
-	query := `
-		DELETE FROM opts WHERE created_at < (CURRENT_TIMESTAMP - INTERVAL ` + otpInterval + ` seconds)
-    `
-	fmt.Println(query)
+func (o *OtpRepository) DeleteExpiredTokens(otpInterval string) (err error) {
+	//query := `
+	//	DELETE FROM otps WHERE created_at < (CURRENT_TIMESTAMP - INTERVAL ' ` + otpInterval + ` seconds')
+	//`
+
+	query := fmt.Sprintf("DELETE FROM otps WHERE created_at < (NOW()-INTERVAL '%s seconds')", otpInterval)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	if _, err = o.db.ExecContext(ctx, query, nil); err != nil {
+		return
+	}
+
 	return
 }
 
 func (o *OtpRepository) Lock(ctx context.Context, key string) (func(), *sqlx.Tx, error) {
-	//TODO implement me
-	panic("implement me")
+	query := `SELECT * FROM otps WHERE key=:key FOR UPDATE`
+	args := map[string]interface{}{
+		"key": key,
+	}
+
+	tx, err := o.db.BeginTxx(ctx, nil)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	rows, err := tx.NamedQuery(query, args)
+	if err != nil {
+		return nil, nil, err
+	}
+	defer rows.Close()
+
+	return func() {
+		err = tx.Commit()
+		if err != nil {
+			return
+		}
+
+	}, tx, nil
+
 }
 
-func (o *OtpRepository) Update(ctx context.Context, tx *sqlx.Tx, key string, data secret.UpdateRequest) error {
-	//TODO implement me
-	panic("implement me")
+func (o *OtpRepository) Update(ctx context.Context, tx *sqlx.Tx, key string, data *secret.UpdateRequest) error {
+	var args []any
+	var setValues []string
+	ind := 1
+	if data.Status != 1 {
+		setValues = append(setValues, fmt.Sprintf("status=$%d", ind))
+		args = append(args, data.Status)
+		ind++
+	}
+
+	if data.Attempts != 0 {
+		setValues = append(setValues, fmt.Sprintf("attempts=$%d", ind))
+		args = append(args, data.Attempts)
+		ind++
+	}
+
+	if data.ConfirmedAt != 0 {
+		setValues = append(setValues, fmt.Sprintf("confirmed_at=$%d", ind))
+		args = append(args, data.ConfirmedAt)
+		ind++
+	}
+
+	if data.SendAt != 0 {
+		setValues = append(setValues, fmt.Sprintf("send_at=$%d", ind))
+		args = append(args, data.SendAt)
+		ind++
+	}
+
+	//args = append(args, key)
+	setValue := strings.Join(setValues, ",")
+
+	query := fmt.Sprintf("UPDATE otps SET %s WHERE key='%s'", setValue, key)
+	if _, err := tx.ExecContext(ctx, query, args...); err != nil {
+		return err
+	}
+
+	fmt.Println("success")
+	return nil
+
+}
+
+func (o *OtpRepository) GetAccountByPhone(phone string) (user.Entity, error) {
+	var data user.Entity
+
+	query := `
+		SELECT *
+		FROM accounts
+		WHERE phone_number=$1 LIMIT 1`
+
+	args := []any{phone}
+
+	err := o.db.Get(&data, query, args...)
+	if err != nil {
+		fmt.Println("=======================", err.Error())
+
+		return user.Entity{}, err
+	}
+	fmt.Println("=======================")
+	fmt.Println(phone)
+	fmt.Println(data)
+	fmt.Println("=======================")
+
+	return data, nil
+}
+
+func (o *OtpRepository) CheckForActivities(data activity.Entity) error {
+	query := `
+		INSERT INTO user_activities (account_id, activity, timestamp) VALUES ($1, $2, $3)
+    `
+	args := []any{data.AccountId, data.Activity, data.Timestamp}
+	if _, err := o.db.Exec(query, args...); err != nil {
+		return err
+	}
+
+	return nil
+
 }
 
 func NewOtpRepository(db *sqlx.DB) *OtpRepository {

@@ -48,11 +48,33 @@ func (a *AccountHandler) add(w http.ResponseWriter, r *http.Request) {
 }
 
 func (a *AccountHandler) get(w http.ResponseWriter, r *http.Request) {
-
+	id := chi.URLParam(r, "id")
+	res, err := a.accountService.GetAuthor(r.Context(), id)
+	if err != nil {
+		render.JSON(w, r, status.InternalServerError(err))
+		return
+	}
+	render.JSON(w, r, status.OK(res))
 }
 func (a *AccountHandler) update(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+	req := user.Request{}
+	if err := render.Bind(r, &req); err != nil {
+		render.JSON(w, r, status.BadRequest(err, req))
+		return
+	}
+
+	err := a.accountService.UpdateAccount(r.Context(), id, req)
+	if err != nil {
+		render.JSON(w, r, status.InternalServerError(err))
+		return
+	}
 
 }
 func (a *AccountHandler) delete(w http.ResponseWriter, r *http.Request) {
-
+	id := chi.URLParam(r, "id")
+	if err := a.accountService.DeleteAuthor(r.Context(), id); err != nil {
+		render.JSON(w, r, status.InternalServerError(err))
+		return
+	}
 }

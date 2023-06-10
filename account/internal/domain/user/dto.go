@@ -1,7 +1,6 @@
 package user
 
 import (
-	"errors"
 	"github.com/shopspring/decimal"
 	"net/http"
 	"time"
@@ -19,17 +18,17 @@ type Request struct {
 }
 
 func (s *Request) Bind(r *http.Request) error {
-	if s.UserName == "" {
-		return errors.New("username: cannot be blank")
-	}
+	//if s.UserName == "" {
+	//	return errors.New("username: cannot be blank")
+	//}
 
-	if s.Type == 0 {
-		return errors.New("account type: cannot be blank")
-	}
+	//if s.Type == 0 {
+	//	return errors.New("account type: cannot be blank")
+	//}
 
-	if s.PhoneNumber == "" {
-		return errors.New("phone number: cannot be blank")
-	}
+	//if s.PhoneNumber == "" {
+	//	return errors.New("phone number: cannot be blank")
+	//}
 
 	return nil
 }
@@ -42,20 +41,29 @@ type Response struct {
 	Longitude    decimal.Decimal `json:"longitude,omitempty"`
 	PhoneNumber  string          `json:"phone_number"`
 	ProfilePhoto string          `json:"profile_photo"`
-	CreatedAt    time.Time       `json:"-"`
+	CreatedAt    time.Time       `json:"-" db:"created_at"`
 	UpdatedAt    time.Time       `json:"-"`
 }
 
 func ParseFromEntity(data Entity) (res Response) {
+
 	res = Response{
 		ID:           data.ID,
 		UserName:     *data.UserName,
 		Type:         *data.Type,
-		Latitude:     *data.Latitude,
-		Longitude:    *data.Longitude,
 		PhoneNumber:  *data.PhoneNumber,
 		ProfilePhoto: *data.ProfilePhoto,
+		CreatedAt:    data.CreatedAt,
+		UpdatedAt:    data.UpdatedAt,
 	}
+
+	if data.Latitude != nil {
+		res.Latitude = *data.Latitude
+	}
+	if data.Longitude != nil {
+		res.Longitude = *data.Longitude
+	}
+
 	return
 }
 

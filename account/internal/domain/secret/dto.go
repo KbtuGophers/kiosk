@@ -8,7 +8,7 @@ import (
 type Request struct {
 	Key         string `json:"key"`
 	Secret      string `json:"secret"`
-	Code        string `json:"debug_code"`
+	Code        string `json:"code"`
 	DebugMode   bool   `json:"debug_mode"`
 	PhoneNumber string `json:"phone_number"`
 }
@@ -28,7 +28,7 @@ type Response struct {
 	PhoneNumber string    `json:"phone_number"`
 	Key         string    `json:"key"`
 	Secret      string    `json:"secret"`
-	Code        string    `json:"debug_code"`
+	Code        string    `json:"code"`
 	Attempts    int       `json:"-"`
 	Status      int       `json:"-"`
 	SendAt      int64     `json:"-"`
@@ -45,10 +45,10 @@ type UpdateRequest struct {
 
 func ParseFromEntity(data Entity) (res Response) {
 	res = Response{
-		ID:          data.ID,
-		Key:         *data.Key,
-		Secret:      *data.Secret,
-		Code:        *data.Code,
+		ID:     data.ID,
+		Key:    *data.Key,
+		Secret: *data.Secret,
+		//Code:        *data.Code,
 		PhoneNumber: *data.PhoneNumber,
 		Status:      data.Status,
 		Attempts:    data.Attempts,
@@ -57,6 +57,10 @@ func ParseFromEntity(data Entity) (res Response) {
 		DebugMode:   data.DebugMode,
 		CreatedAt:   data.CreatedAt,
 		UpdatedAt:   data.UpdatedAt,
+	}
+
+	if data.Code != nil {
+		res.Code = *data.Code
 	}
 
 	return

@@ -7,9 +7,13 @@ require (
 	github.com/go-chi/cors v1.2.1
 	github.com/go-chi/render v1.0.2
 	github.com/golang-migrate/migrate/v4 v4.16.1
+	github.com/google/uuid v1.3.0
 	github.com/jmoiron/sqlx v1.3.5
 	github.com/joho/godotenv v1.5.1
 	github.com/kelseyhightower/envconfig v1.4.0
+	github.com/shopspring/decimal v1.3.1
+	github.com/twilio/twilio-go v1.7.2
+	github.com/xlzd/gotp v0.1.0
 	go.elastic.co/apm/module/apmzap v1.15.0
 	go.uber.org/zap v1.24.0
 )
@@ -21,7 +25,6 @@ require (
 	github.com/elastic/go-sysinfo v1.1.1 // indirect
 	github.com/elastic/go-windows v1.0.0 // indirect
 	github.com/golang/mock v1.6.0 // indirect
-	github.com/google/uuid v1.3.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/jcchavezs/porto v0.1.0 // indirect
@@ -30,9 +33,6 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/prometheus/procfs v0.0.0-20190425082905-87a4384529e0 // indirect
 	github.com/santhosh-tekuri/jsonschema v1.2.4 // indirect
-	github.com/shopspring/decimal v1.3.1 // indirect
-	github.com/twilio/twilio-go v1.7.2 // indirect
-	github.com/xlzd/gotp v0.1.0 // indirect
 	go.elastic.co/apm v1.15.0 // indirect
 	go.elastic.co/fastjson v1.1.0 // indirect
 	go.uber.org/atomic v1.7.0 // indirect

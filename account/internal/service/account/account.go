@@ -36,15 +36,20 @@ func (s *Service) GetAuthor(ctx context.Context, id string) (res user.Response, 
 	return
 }
 
-func (s *Service) UpdateAuthor(ctx context.Context, id string, req user.Request) error {
+func (s *Service) UpdateAccount(ctx context.Context, id string, req user.Request) error {
 	data := user.Entity{
-		UserName:    &req.UserName,
-		Type:        &req.Type,
-		Longitude:   &req.Longitude,
-		Latitude:    &req.Latitude,
-		PhoneNumber: &req.PhoneNumber,
+		UserName:     &req.UserName,
+		Type:         &req.Type,
+		Longitude:    &req.Longitude,
+		Latitude:     &req.Latitude,
+		PhoneNumber:  &req.PhoneNumber,
+		ProfilePhoto: &req.ProfilePhoto,
 	}
-	return s.accountRepository.Update(ctx, id, data)
+	if err := s.accountRepository.Update(ctx, id, data); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (s *Service) DeleteAuthor(ctx context.Context, id string) error {

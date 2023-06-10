@@ -4,7 +4,9 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/KbtuGophers/kiosk/account/internal/domain/activity"
 	"github.com/KbtuGophers/kiosk/account/internal/domain/secret"
+	"github.com/KbtuGophers/kiosk/account/internal/domain/user"
 	"github.com/google/uuid"
 	"github.com/jmoiron/sqlx"
 	openapi "github.com/twilio/twilio-go/rest/api/v2010"
@@ -26,6 +28,11 @@ import (
 
 func (s *Service) Create(ctx context.Context, req secret.Request) (res secret.Response, err error) {
 
+	_, err = s.GetAccountByPhone(req.PhoneNumber)
+	if err != nil {
+		return
+	}
+
 	OtpKey := uuid.New().String()
 	OtpSecret := gotp.RandomSecret(16)
 	code := gotp.NewTOTP(OtpSecret, 4, s.OtpInterval, nil).Now()
@@ -37,6 +44,7 @@ func (s *Service) Create(ctx context.Context, req secret.Request) (res secret.Re
 		Status:      1,
 		PhoneNumber: &req.PhoneNumber,
 		SendAt:      time.Now().Unix(),
+		DebugMode:   req.DebugMode,
 	}
 
 	err = s.OtpRepository.Create(ctx, data)
@@ -68,7 +76,7 @@ func (s *Service) GetByKey(ctx context.Context, key string) (res secret.Response
 	//fmt.Println("GetByKey: ", s.OtpRepository)
 	data, err := s.OtpRepository.GetByKey(ctx, key)
 	if err != nil {
-		fmt.Println("errorrrrr")
+		//fmt.Println("errorrrrr")
 		return
 	}
 
@@ -76,10 +84,9 @@ func (s *Service) GetByKey(ctx context.Context, key string) (res secret.Response
 	return
 }
 
-func (s *Service) GetById(ctx context.Context, req secret.Request) (res secret.Response, err error) {
+func (s *Service) Check(ctx context.Context, req secret.Request) (res secret.Response, err error) {
 	reqTime := time.Now().Unix()
-	updReq := secret.UpdateRequest{}
-
+	updReq := &secret.UpdateRequest{}
 	//fmt.Println("Key: ", req.Key)
 
 	res, err = s.GetByKey(ctx, req.Key)
@@ -127,16 +134,40 @@ func (s *Service) GetById(ctx context.Context, req secret.Request) (res secret.R
 		}
 		defer unlock()
 		err = s.OtpRepository.Update(ctx, reqTX, res.Key, updReq)
+
 		if err != nil {
 			return
 		}
+
 	}
 
-	fmt.Println("GetById is finished")
+	//fmt.Println("GetById is finished")
 	return
 
 }
 
-func (s *Service) DeleteExpiredTokens(ctx context.Context) {
-	s.OtpRepository.DeleteExpiredTokens(strconv.Itoa(s.OtpInterval))
+func (s *Service) InsertActivities(accountId string) error {
+	data := activity.Entity{Activity: "LOGIN", AccountId: accountId}
+	if err := s.OtpRepository.CheckForActivities(data); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (s *Service) GetAccountByPhone(phone string) (res user.Response, err error) {
+	var data user.Entity
+	data, err = s.OtpRepository.GetAccountByPhone(phone)
+	if err != nil {
+		return
+	}
+
+	res = user.ParseFromEntity(data)
+
+	return
+}
+
+func (s *Service) DeleteExpiredTokens() (err error) {
+	err = s.OtpRepository.DeleteExpiredTokens(strconv.Itoa(s.OtpInterval))
+	return
 }
