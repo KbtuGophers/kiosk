@@ -21,7 +21,7 @@ type (
 	Config struct {
 		HTTP     HTTPConfig
 		POSTGRES DatabaseConfig
-		TWILIO   TwilioConfig
+		SMSC     SMSCConfig
 		OTP      OTPConfig
 	}
 
@@ -30,10 +30,10 @@ type (
 		Interval string
 	}
 
-	TwilioConfig struct {
-		Username string
+	SMSCConfig struct {
+		Login    string
 		Password string
-		Sid      string
+		Sender   string
 	}
 
 	HTTPConfig struct {
@@ -88,7 +88,7 @@ func New() (cfg Config, err error) {
 	//	return
 	//}
 
-	err = envconfig.Process("TWILIO", &cfg.TWILIO)
+	err = envconfig.Process("SMSC", &cfg.SMSC)
 	if err != nil {
 		return
 	}

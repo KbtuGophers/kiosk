@@ -2,7 +2,6 @@ package secret
 
 import (
 	"net/http"
-	"time"
 )
 
 type Request struct {
@@ -22,45 +21,31 @@ func (s *Request) Bind(r *http.Request) error {
 }
 
 type Response struct {
-	ID          string    `json:"id"`
-	CreatedAt   time.Time `json:"-"`
-	UpdatedAt   time.Time `json:"-"`
-	PhoneNumber string    `json:"phone_number"`
-	Key         string    `json:"key"`
-	Secret      string    `json:"secret"`
-	Code        string    `json:"code"`
-	Attempts    int       `json:"-"`
-	Status      int       `json:"-"`
-	SendAt      int64     `json:"-"`
-	ConfirmedAt int64     `json:"-"`
-	DebugMode   bool      `json:"debug_mode"`
+	ID          string `json:"id"`
+	Key         string `json:"key"`
+	Code        string `json:"code"`
+	PhoneNumber string `json:"phone_number"`
 }
 
 type UpdateRequest struct {
-	Attempts    int   `json:"-"`
-	Status      int   `json:"-"`
-	SendAt      int64 `json:"-"`
+	Attempts int   `json:"-"`
+	Status   int   `json:"-"`
+	SendAt   int64 `json:"-"`
+
 	ConfirmedAt int64 `json:"-"`
 }
 
 func ParseFromEntity(data Entity) (res Response) {
 	res = Response{
-		ID:     data.ID,
-		Key:    *data.Key,
-		Secret: *data.Secret,
-		//Code:        *data.Code,
-		PhoneNumber: *data.PhoneNumber,
-		Status:      data.Status,
-		Attempts:    data.Attempts,
-		SendAt:      data.SendAt,
-		ConfirmedAt: data.ConfirmedAt,
-		DebugMode:   data.DebugMode,
-		CreatedAt:   data.CreatedAt,
-		UpdatedAt:   data.UpdatedAt,
+		ID:  data.ID,
+		Key: *data.Key,
 	}
 
 	if data.Code != nil {
 		res.Code = *data.Code
+	}
+	if data.Code != nil {
+		res.PhoneNumber = *data.PhoneNumber
 	}
 
 	return

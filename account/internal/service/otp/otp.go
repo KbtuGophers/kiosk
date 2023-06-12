@@ -9,7 +9,6 @@ import (
 	"github.com/KbtuGophers/kiosk/account/internal/domain/user"
 	"github.com/google/uuid"
 	"github.com/jmoiron/sqlx"
-	openapi "github.com/twilio/twilio-go/rest/api/v2010"
 	"github.com/xlzd/gotp"
 	"strconv"
 	"time"
@@ -54,18 +53,21 @@ func (s *Service) Create(ctx context.Context, req secret.Request) (res secret.Re
 
 	if req.DebugMode == true {
 		data.Code = &code
-	} else {
-		params := &openapi.CreateMessageParams{}
-		params.SetTo(req.PhoneNumber)
-		params.SetBody("Your code: " + code)
 
-		_, err = s.client.Api.CreateMessage(params)
+	} else {
+		//params := &openapi.CreateMessageParams{}
+		//params.SetTo(req.PhoneNumber)
+		//params.SetBody("Your code: " + code)
+		//
+		//_, err = s.client.Api.CreateMessage(params)
+		//if err != nil {
+		//	return
+		//}
+		_, err = s.client.SendSms("Your code: "+code, req.PhoneNumber)
 		if err != nil {
 			return
 		}
-
 	}
-
 	res = secret.ParseFromEntity(data)
 
 	return
@@ -88,33 +90,33 @@ func (s *Service) Check(ctx context.Context, req secret.Request) (res secret.Res
 	reqTime := time.Now().Unix()
 	updReq := &secret.UpdateRequest{}
 	//fmt.Println("Key: ", req.Key)
-
-	res, err = s.GetByKey(ctx, req.Key)
+	var data secret.Entity
+	data, err = s.OtpRepository.GetByKey(ctx, req.Key)
 	if err != nil {
 		return
 	}
 	//check status
-	if res.Status != 1 {
+	if data.Status != 1 {
 		err = errors.New("otp is invalid")
 		return
 	}
 
 	//check if time expired
-	if reqTime-res.SendAt > int64(s.OtpInterval) {
+	if reqTime-data.SendAt > int64(s.OtpInterval) {
 		updReq.Status = 0
 		err = errors.New("otp time is expired")
 		return
 	}
 
 	//check attempts
-	res.Attempts += 1
-	if res.Attempts > s.OtpAttempts {
+	data.Attempts += 1
+	if data.Attempts > s.OtpAttempts {
 		updReq.Status = 0
-		err = errors.New(fmt.Sprintf("attempted %s times", res.Attempts))
+		err = errors.New(fmt.Sprintf("attempted %s times", data.Attempts))
 		return
 	}
 
-	valid := gotp.NewTOTP(res.Secret, 4, s.OtpInterval, nil).Verify(req.Code, res.SendAt)
+	valid := gotp.NewTOTP(*data.Secret, 4, s.OtpInterval, nil).Verify(req.Code, data.SendAt)
 	if !valid {
 		err = errors.New("code is invalid")
 		return
@@ -123,23 +125,25 @@ func (s *Service) Check(ctx context.Context, req secret.Request) (res secret.Res
 		updReq.ConfirmedAt = time.Now().Unix()
 	}
 
-	if res.Attempts < s.OtpAttempts {
-		updReq.Attempts = res.Attempts
+	if data.Attempts < s.OtpAttempts {
+		updReq.Attempts = data.Attempts
 
 		var unlock func()
 		var reqTX *sqlx.Tx
-		unlock, reqTX, err = s.OtpRepository.Lock(ctx, res.Key)
+		unlock, reqTX, err = s.OtpRepository.Lock(ctx, *data.Key)
 		if err != nil {
 			return
 		}
 		defer unlock()
-		err = s.OtpRepository.Update(ctx, reqTX, res.Key, updReq)
+		err = s.OtpRepository.Update(ctx, reqTX, *data.Key, updReq)
 
 		if err != nil {
 			return
 		}
 
 	}
+
+	res = secret.ParseFromEntity(data)
 
 	//fmt.Println("GetById is finished")
 	return

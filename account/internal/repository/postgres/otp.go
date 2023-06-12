@@ -149,14 +149,9 @@ func (o *OtpRepository) GetAccountByPhone(phone string) (user.Entity, error) {
 
 	err := o.db.Get(&data, query, args...)
 	if err != nil {
-		fmt.Println("=======================", err.Error())
 
 		return user.Entity{}, err
 	}
-	fmt.Println("=======================")
-	fmt.Println(phone)
-	fmt.Println(data)
-	fmt.Println("=======================")
 
 	return data, nil
 }
