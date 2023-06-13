@@ -2,6 +2,7 @@ package user
 
 import (
 	"github.com/shopspring/decimal"
+	"net/http"
 	"time"
 )
 
@@ -10,7 +11,7 @@ type Entity struct {
 	UserName     *string          `json:"user_name" db:"user_name"`
 	Type         *int             `json:"type" db:"account_type_id"`
 	Latitude     *decimal.Decimal `json:"latitude,omitempty" db:"latitude" validate:"required"`
-	Longitude    *decimal.Decimal `json:"longitude,omitempty" db:"latitude" validate:"required"`
+	Longitude    *decimal.Decimal `json:"longitude,omitempty" db:"longitude" validate:"required"`
 	PhoneNumber  *string          `json:"phone_number" db:"phone_number"`
 	ProfilePhoto *string          `json:"profile_photo" db:"profile_photo"`
 	CreatedAt    time.Time        `json:"-" db:"created_at"`
@@ -18,6 +19,10 @@ type Entity struct {
 }
 
 type Types struct {
-	ID   int     `json:"id"`
-	Name *string `json:"name"`
+	ID   int    `json:"id"`
+	Name string `json:"name"`
+}
+
+func (t *Types) Bind(r *http.Request) error {
+	return nil
 }

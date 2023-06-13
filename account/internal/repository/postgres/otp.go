@@ -8,6 +8,7 @@ import (
 	"github.com/KbtuGophers/kiosk/account/internal/domain/secret"
 	"github.com/KbtuGophers/kiosk/account/internal/domain/user"
 	"github.com/jmoiron/sqlx"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -54,17 +55,19 @@ func (o *OtpRepository) GetByKey(ctx context.Context, key string) (data secret.E
 	return
 }
 
-func (o *OtpRepository) DeleteExpiredTokens(otpInterval string) (err error) {
-	//query := `
-	//	DELETE FROM otps WHERE created_at < (CURRENT_TIMESTAMP - INTERVAL ' ` + otpInterval + ` seconds')
-	//`
+func (o *OtpRepository) DeleteExpiredTokens(otpInterval int) (err error) {
 
-	query := fmt.Sprintf("DELETE FROM otps WHERE created_at < (NOW()-INTERVAL '%s seconds')", otpInterval)
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	if _, err = o.db.ExecContext(ctx, query, nil); err != nil {
-		return
-	}
+
+	_, err = o.db.NamedExecContext(ctx, `
+		DELETE FROM otps
+		WHERE id IN (
+		    SELECT id
+		    FROM otps
+		    WHERE created_at < (CURRENT_TIMESTAMP - INTERVAL '`+strconv.Itoa(otpInterval)+` seconds')
+		)`,
+		map[string]interface{}{})
 
 	return
 }

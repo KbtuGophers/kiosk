@@ -64,6 +64,8 @@ func New() (cfg Config, err error) {
 		return
 	}
 
+	godotenv.Load(filepath.Join(root, ".env"))
+
 	httpConfig := HTTPConfig{
 		Port:               defaultHTTPPort,
 		ReadTimeout:        defaultHTTPReadTimeout,
@@ -72,11 +74,6 @@ func New() (cfg Config, err error) {
 		MaxHeaderMegabytes: defaultHTTPMaxHeaderMegabytes,
 	}
 	cfg.HTTP = httpConfig
-
-	err = godotenv.Load(filepath.Join(root, ".env"))
-	if err != nil {
-		return
-	}
 
 	err = envconfig.Process("HTTP", &cfg.HTTP)
 	if err != nil {

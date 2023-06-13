@@ -46,7 +46,7 @@ func WithHTTPHandler() Configuration {
 
 		h.HTTP.Route("/api/v1", func(r chi.Router) {
 			r.Mount("/user", accountHandler.Routes())
-			r.Mount("/otps", otpHandler.Routes())
+			r.Mount("/otp", otpHandler.Routes())
 		})
 		return
 	}

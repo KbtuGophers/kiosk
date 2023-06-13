@@ -10,7 +10,6 @@ import (
 	"github.com/google/uuid"
 	"github.com/jmoiron/sqlx"
 	"github.com/xlzd/gotp"
-	"strconv"
 	"time"
 )
 
@@ -172,6 +171,9 @@ func (s *Service) GetAccountByPhone(phone string) (res user.Response, err error)
 }
 
 func (s *Service) DeleteExpiredTokens() (err error) {
-	err = s.OtpRepository.DeleteExpiredTokens(strconv.Itoa(s.OtpInterval))
+	err = s.OtpRepository.DeleteExpiredTokens(s.OtpInterval)
+	if err != nil {
+		fmt.Println("___________erire_______________" + err.Error())
+	}
 	return
 }

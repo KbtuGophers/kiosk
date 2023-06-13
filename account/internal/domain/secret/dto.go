@@ -44,7 +44,7 @@ func ParseFromEntity(data Entity) (res Response) {
 	if data.Code != nil {
 		res.Code = *data.Code
 	}
-	if data.Code != nil {
+	if data.PhoneNumber != nil {
 		res.PhoneNumber = *data.PhoneNumber
 	}
 
