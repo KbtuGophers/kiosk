@@ -1,1 +1,1 @@
-package config
+git rebase origin/masterpackage config
