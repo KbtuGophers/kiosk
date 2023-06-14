@@ -22,8 +22,8 @@ func NewCategoryRepository(db *sqlx.DB) *CategoryRepository {
 
 func (s *CategoryRepository) Select(ctx context.Context) (dest []category.Entity, err error) {
 	query := `
-		SELECT id, name
-		FROM category
+		SELECT id, name, parent_id
+		FROM categories
 		ORDER BY id`
 
 	err = s.db.SelectContext(ctx, &dest, query)
@@ -33,13 +33,30 @@ func (s *CategoryRepository) Select(ctx context.Context) (dest []category.Entity
 
 func (s *CategoryRepository) Create(ctx context.Context, data category.Entity) (id string, err error) {
 	query := `
-		INSERT INTO category (name)
-		VALUES ($1)
+		INSERT INTO categories (id, name, parent_id)
+		VALUES ($1, $2, $3)
 		RETURNING id`
 
-	args := []any{data.Name}
+	args := []any{data.ID, data.Name, data.ParentId}
 
 	err = s.db.QueryRowContext(ctx, query, args...).Scan(&id)
+
+	return
+}
+
+func (s *CategoryRepository) GetChilds(ctx context.Context, id string) (dest []category.Entity, err error) {
+	query := `
+		SELECT id, name, parent_id
+		FROM categories
+		WHERE parent_id=$1
+	`
+	args := []any{id}
+
+	err = s.db.SelectContext(ctx, &dest, query, args)
+
+	for i, _ := range dest {
+		*dest[i].Child, _ = s.GetChilds(ctx, dest[i].ID)
+	}
 
 	return
 }
@@ -47,7 +64,7 @@ func (s *CategoryRepository) Create(ctx context.Context, data category.Entity) (
 func (s *CategoryRepository) Get(ctx context.Context, id string) (dest category.Entity, err error) {
 	query := `
 		SELECT id, name
-		FROM category
+		FROM categories
 		WHERE id=$1`
 
 	args := []any{id}
@@ -60,6 +77,11 @@ func (s *CategoryRepository) Get(ctx context.Context, id string) (dest category.
 		err = store.ErrorNotFound
 	}
 
+	childs, _ := s.GetChilds(ctx, id)
+	for _, child := range childs {
+		*dest.Child = append(*dest.Child, child)
+	}
+
 	return
 }
 
@@ -70,7 +92,7 @@ func (s *CategoryRepository) Update(ctx context.Context, id string, data categor
 		args = append(args, id)
 		sets = append(sets, "updated_at=CURRENT_TIMESTAMP")
 
-		query := fmt.Sprintf("UPDATE category SET %s WHERE id=$%d", strings.Join(sets, ", "), len(args))
+		query := fmt.Sprintf("UPDATE categories SET %s WHERE id=$%d", strings.Join(sets, ", "), len(args))
 		_, err = s.db.ExecContext(ctx, query, args...)
 		if err != nil && err != sql.ErrNoRows {
 			return
@@ -87,16 +109,20 @@ func (s *CategoryRepository) Update(ctx context.Context, id string, data categor
 func (s *CategoryRepository) prepareArgs(data category.Entity) (sets []string, args []any) {
 	if data.Name != nil {
 		args = append(args, data.Name)
-		sets = append(sets, fmt.Sprintf("full_name=$%d", len(args)))
+		sets = append(sets, fmt.Sprintf("name=$%d", len(args)))
 	}
 
+	if data.ParentId != nil {
+		args = append(args, data.ParentId)
+		sets = append(sets, fmt.Sprintf("parent_id=$%d", len(args)))
+	}
 	return
 }
 
 func (s *CategoryRepository) Delete(ctx context.Context, id string) (err error) {
 	query := `
 		DELETE 
-		FROM category
+		FROM categories
 		WHERE id=$1`
 
 	args := []any{id}

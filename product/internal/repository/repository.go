@@ -1,7 +1,6 @@
 package repository
 
 import (
-	"product/internal/domain/catalog"
 	"product/internal/domain/category"
 	"product/internal/domain/product"
 	"product/internal/repository/postgres"
@@ -15,7 +14,6 @@ type Configuration func(r *Repository) error
 type Repository struct {
 	postgres *store.Database
 
-	Catalog  catalog.Repository
 	Category category.Repository
 	Product  product.Repository
 }
@@ -53,13 +51,11 @@ func WithPostgresStore(schema, dataSourceName string) Configuration {
 		if err != nil {
 			return
 		}
-
 		err = s.postgres.Migrate()
 		if err != nil {
 			return
 		}
 
-		s.Catalog = postgres.NewCatalogRepository(s.postgres.Client)
 		s.Category = postgres.NewCategoryRepository(s.postgres.Client)
 		s.Product = postgres.NewProductRepository(s.postgres.Client)
 

@@ -2,16 +2,14 @@ package handler
 
 import (
 	"github.com/go-chi/chi/v5"
-	_ "library/docs"
+	httpSwagger "github.com/swaggo/http-swagger/v2"
 	"product/internal/handler/http"
-	"product/internal/service/library"
-	"product/internal/service/subscription"
+	"product/internal/service"
 	"product/pkg/server/router"
 )
 
 type Dependencies struct {
-	LibraryService      *library.Service
-	SubscriptionService *subscription.Service
+	Service *service.Service
 }
 
 // Configuration is an alias for a function that will take in a pointer to a Handler and modify it
@@ -68,14 +66,12 @@ func WithHTTPHandler() Configuration {
 			httpSwagger.URL("http://localhost/swagger/doc.json"),
 		))
 
-		authorHandler := http.NewAuthorHandler(h.dependencies.LibraryService)
-		bookHandler := http.NewBookHandler(h.dependencies.LibraryService)
-		memberHandler := http.NewMemberHandler(h.dependencies.SubscriptionService)
+		authorHandler := http.NewCategoryHandler(h.dependencies.Service)
+		bookHandler := http.NewProductHandler(h.dependencies.Service)
 
 		h.HTTP.Route("/api/v1", func(r chi.Router) {
-			r.Mount("/authors", authorHandler.Routes())
-			r.Mount("/books", bookHandler.Routes())
-			r.Mount("/members", memberHandler.Routes())
+			r.Mount("/categories", authorHandler.Routes())
+			r.Mount("/products", bookHandler.Routes())
 		})
 
 		return

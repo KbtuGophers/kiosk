@@ -8,9 +8,10 @@ import (
 	"net/url"
 	"strings"
 
+	_ "github.com/golang-migrate/migrate/v4/database/postgres"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
-
 	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 	//_ "github.com/sijms/go-ora/v2"
 )
 
@@ -24,6 +25,14 @@ type Database struct {
 	Client *sqlx.DB
 }
 
+func (s *Database) Print() {
+	fmt.Println("Schema: ", s.schema)
+	fmt.Println("DriverName: ", s.driverName)
+	fmt.Println("Data source: ", s.dataSourceName)
+	fmt.Println("client: ", s.Client)
+
+}
+
 // NewDatabase established connection to a database instance using provided URI and auth credentials.
 func NewDatabase(schema, dataSourceName string) (database *Database, err error) {
 	database = &Database{
@@ -31,11 +40,12 @@ func NewDatabase(schema, dataSourceName string) (database *Database, err error) 
 		dataSourceName: dataSourceName,
 	}
 
-	database.Client, err = database.connection()
-	if err != nil {
+	if err = database.connection(); err != nil {
 		return
 	}
 	err = database.createSchema()
+
+	database.Print()
 
 	return
 }
@@ -53,19 +63,19 @@ func (s *Database) Migrate() (err error) {
 	return nil
 }
 
-func (s *Database) connection() (client *sqlx.DB, err error) {
-	err = s.parseDSN()
+func (s *Database) connection() error {
+	err := s.parseDSN()
 	if err != nil {
-		return
+		return err
 	}
 
-	client, err = sqlx.Connect(s.driverName, s.dataSourceName)
+	s.Client, err = sqlx.Connect(s.driverName, s.dataSourceName)
 	if err != nil {
-		return
+		return err
 	}
-	client.SetMaxOpenConns(20)
+	s.Client.SetMaxOpenConns(20)
 
-	return
+	return nil
 }
 
 func (s *Database) parseDSN() (err error) {

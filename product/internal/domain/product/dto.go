@@ -6,11 +6,16 @@ import (
 )
 
 type Request struct {
-	ID          string `json:"id"`
-	Name        string `json:"name" validate:"required"`
-	Description string `json:"description" validate:"required"`
-	Cost        int    `json:"cost" validate:"required"`
-	Category    string `json:"category" validate:"required"`
+	ID              string `json:"id"`
+	CategoryID      string `json:"category_id"`
+	Barcode         string `json:"barcode"`
+	Name            string `json:"name"`
+	Measure         string `json:"measure"`
+	ProducerCountry string `json:"producer_country"`
+	BrandName       string `json:"brand_name"`
+	Description     string `json:"description"`
+	Image           string `json:"image"`
+	IsWeighted      bool   `json:"is_weighted"`
 }
 
 func (s *Request) Bind(r *http.Request) error {
@@ -18,36 +23,37 @@ func (s *Request) Bind(r *http.Request) error {
 		return errors.New("name: cannot be blank")
 	}
 
-	if s.Description == "" {
-		return errors.New("discription: cannot be blank")
+	if s.CategoryID == "" {
+		return errors.New("category_id: cannot be blank")
 	}
-
-	if s.Cost == 0 {
-		return errors.New("cost: cannot be blank")
-	}
-
-	if s.Category == "" {
-		return errors.New("category: cannot be blank")
-	}
-
 	return nil
 }
 
 type Response struct {
-	ID          string `json:"id"`
-	Name        string `json:"name"`
-	Description string `json:"description"`
-	Cost        int    `json:"cost"`
-	Category    string `json:"category"`
+	ID              string `json:"id"`
+	CategoryID      string `json:"category_id"`
+	Barcode         string `json:"barcode"`
+	Name            string `json:"name"`
+	Measure         string `json:"measure"`
+	ProducerCountry string `json:"producer_country"`
+	BrandName       string `json:"brand_name"`
+	Description     string `json:"description"`
+	Image           string `json:"image"`
+	IsWeighted      bool   `json:"is_weighted"`
 }
 
 func ParseFromEntity(data Entity) (res Response) {
 	res = Response{
-		ID:          data.ID,
-		Name:        *data.Name,
-		Description: *data.Description,
-		Cost:        *data.Cost,
-		Category:    *data.Category,
+		ID:              data.ID,
+		CategoryID:      *data.CategoryID,
+		Barcode:         *data.Barcode,
+		Name:            *data.Name,
+		Measure:         *data.Measure,
+		ProducerCountry: *data.ProducerCountry,
+		BrandName:       *data.BrandName,
+		Description:     *data.Description,
+		Image:           *data.Image,
+		IsWeighted:      *data.IsWeighted,
 	}
 	return
 }

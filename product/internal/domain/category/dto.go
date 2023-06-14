@@ -6,7 +6,8 @@ import (
 )
 
 type Request struct {
-	Name string `json:"name"`
+	Name     string `json:"name"`
+	ParentId string `json:"parent_id"`
 }
 
 func (s *Request) Bind(r *http.Request) error {
@@ -18,14 +19,18 @@ func (s *Request) Bind(r *http.Request) error {
 }
 
 type Response struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+	ID       string   `json:"id"`
+	Name     string   `json:"name"`
+	ParentId string   `json:"parent_id"`
+	Childs   []Entity `json:"childs"`
 }
 
 func ParseFromEntity(data Entity) (res Response) {
 	res = Response{
-		ID:   data.ID,
-		Name: *data.Name,
+		ID:       data.ID,
+		Name:     *data.Name,
+		ParentId: *data.ParentId,
+		Childs:   *data.Child,
 	}
 	return
 }
