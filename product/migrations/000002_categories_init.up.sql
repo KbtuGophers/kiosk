@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS categories
+(
+    created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    id           VARCHAR PRIMARY KEY,
+    name    VARCHAR NOT NULL,
+    parent_id    VARCHAR NOT NULL
+    );
