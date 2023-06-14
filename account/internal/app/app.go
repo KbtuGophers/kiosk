@@ -7,12 +7,12 @@ import (
 	"github.com/KbtuGophers/kiosk/account/internal/config"
 	"github.com/KbtuGophers/kiosk/account/internal/handler"
 	"github.com/KbtuGophers/kiosk/account/internal/repository"
+	"github.com/KbtuGophers/kiosk/account/internal/service/smsc"
 	//service2 "github.com/KbtuGophers/kiosk/account/internal/service"
 	"github.com/KbtuGophers/kiosk/account/internal/service/account"
 	"github.com/KbtuGophers/kiosk/account/internal/service/otp"
 	"github.com/KbtuGophers/kiosk/account/pkg/log"
 	"github.com/KbtuGophers/kiosk/account/pkg/server"
-	"github.com/twilio/twilio-go"
 	"go.uber.org/zap"
 	"os"
 	"os/signal"
@@ -49,10 +49,24 @@ func Run() {
 		return
 	}
 
-	twilioClient := twilio.NewRestClientWithParams(twilio.ClientParams{
-		Username: cfg.TWILIO.Username,
-		Password: cfg.TWILIO.Password,
-	})
+	//twilioClient := twilio.NewRestClientWithParams(twilio.ClientParams{
+	//	Username: cfg.TWILIO.Username,
+	//	Password: cfg.TWILIO.Password,
+	//})
+
+	//smscClient := smsc.Client{
+	//	Login:    cfg.SMSC.Login,
+	//	Password: cfg.SMSC.Password,
+	//	Sender:   cfg.SMSC.Sender,
+	//	Tinyurl:  "1",
+	//}
+
+	smscClient, err := smsc.New(cfg.SMSC.Login, cfg.SMSC.Password, cfg.SMSC.Sender)
+	if err != nil {
+		logger.Error("ERR_NEW_SMSC_CLIENT")
+	}
+
+	//fmt.Println(cfg.SMSC.Password)
 
 	attempts, err := strconv.ParseInt(cfg.OTP.Attempts, 10, 64)
 	if err != nil {
@@ -64,7 +78,7 @@ func Run() {
 	}
 
 	otpService, err := otp.NewOtpService(
-		twilioClient,
+		smscClient,
 		int(attempts),
 		int(interval),
 		otp.WithOtpRepository(repo.Otp),

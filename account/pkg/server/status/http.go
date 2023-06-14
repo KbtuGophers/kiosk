@@ -12,6 +12,7 @@ type Response struct {
 }
 
 func (e *Response) Render(w http.ResponseWriter, r *http.Request) error {
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(e.Status)
 	return nil
 }
@@ -36,6 +37,14 @@ func BadRequest(err error, data any) Response {
 func InternalServerError(err error) Response {
 	return Response{
 		Status:  http.StatusInternalServerError,
+		Success: false,
+		Message: err.Error(),
+	}
+}
+
+func NotFoundError(err error) Response {
+	return Response{
+		Status:  http.StatusNotFound,
 		Success: false,
 		Message: err.Error(),
 	}

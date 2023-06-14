@@ -3,19 +3,19 @@ package otp
 import (
 	"fmt"
 	"github.com/KbtuGophers/kiosk/account/internal/domain/secret"
-	"github.com/twilio/twilio-go"
+	"github.com/KbtuGophers/kiosk/account/internal/service/smsc"
 )
 
 type Configuration func(otp *Service) error
 
 type Service struct {
-	client        *twilio.RestClient
+	client        *smsc.Client
 	OtpAttempts   int
 	OtpInterval   int
 	OtpRepository secret.Repository
 }
 
-func NewOtpService(client *twilio.RestClient, attempts int, interval int, configs ...Configuration) (s *Service, err error) {
+func NewOtpService(client *smsc.Client, attempts int, interval int, configs ...Configuration) (s *Service, err error) {
 	s = &Service{client: client, OtpAttempts: attempts, OtpInterval: interval}
 	for _, cfg := range configs {
 		if err = cfg(s); err != nil {
