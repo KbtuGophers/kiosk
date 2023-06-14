@@ -15,6 +15,7 @@ const (
 	defaultHTTPWriteTimeout       = 15 * time.Second
 	defaultHTTPIdleTimeout        = 60 * time.Second
 	defaultHTTPMaxHeaderMegabytes = 1
+	defaultHTTPSchema             = "http"
 )
 
 type (
@@ -43,6 +44,7 @@ type (
 		WriteTimeout       time.Duration
 		IdleTimeout        time.Duration
 		MaxHeaderMegabytes int
+		Schema             string
 	}
 
 	ClientConfig struct {
@@ -72,6 +74,7 @@ func New() (cfg Config, err error) {
 		WriteTimeout:       defaultHTTPWriteTimeout,
 		IdleTimeout:        defaultHTTPIdleTimeout,
 		MaxHeaderMegabytes: defaultHTTPMaxHeaderMegabytes,
+		Schema:             defaultHTTPSchema,
 	}
 	cfg.HTTP = httpConfig
 
