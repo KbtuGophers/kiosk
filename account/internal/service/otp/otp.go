@@ -62,7 +62,10 @@ func (s *Service) Create(ctx context.Context, req secret.Request) (res secret.Re
 		//if err != nil {
 		//	return
 		//}
-		_, err = s.client.SendSms("Your code: "+code, req.PhoneNumber)
+
+		message := fmt.Sprintf("Пароль авторизации:%s", code)
+		//fmt.Println(message)
+		_, err = s.client.SendSms(message, req.PhoneNumber)
 		if err != nil {
 			return
 		}

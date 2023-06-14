@@ -17,7 +17,7 @@ func (s *Client) Send(params *url.Values) (*sms.Response, error) {
 
 	req, err := http.NewRequest("POST", "https://smsc.kz/sys/send.php?", bytes.NewBufferString(params.Encode()))
 
-	fmt.Println(bytes.NewBufferString(params.Encode()))
+	//fmt.Println(bytes.NewBufferString(params.Encode()))
 	if err != nil {
 		return nil, err
 	}
@@ -56,12 +56,12 @@ func (s *Client) SendSms(message string, phones ...string) (*sms.Response, error
 	params.Add("psw", s.password)
 	params.Add("phones", phones_str)
 	params.Add("mes", message)
-	//params.Add("charset", s.charset)
+	params.Add("charset", s.charset)
 	params.Add("fmt", "3") // json
-	//params.Add("tinyurl", "1")
-	//if s.sender != "" {
-	//	params.Add("sender", s.sender)
-	//}
+	params.Add("tinyurl", "1")
+	if s.sender != "" {
+		params.Add("sender", s.sender)
+	}
 
 	s.mu.RUnlock()
 

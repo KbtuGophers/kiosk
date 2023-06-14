@@ -66,6 +66,8 @@ func Run() {
 		logger.Error("ERR_NEW_SMSC_CLIENT")
 	}
 
+	//fmt.Println(cfg.SMSC.Password)
+
 	attempts, err := strconv.ParseInt(cfg.OTP.Attempts, 10, 64)
 	if err != nil {
 		logger.Error("ERR_PARSE_ATTEMPTS_TO_INT")
