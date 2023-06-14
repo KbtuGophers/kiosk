@@ -5,3 +5,4 @@ import "product/internal/app"
 func main() {
 	app.Run()
 }
+
