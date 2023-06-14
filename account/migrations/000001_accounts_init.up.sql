@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS account.accounts
     account_type_id int NOT NULL,
     latitude    NUMERIC,
     longitude   NUMERIC,
-    profile_photo VARCHAR NOT NULL,
+    profile_photo VARCHAR,
     FOREIGN KEY (account_type_id) REFERENCES account_types (id)
 
 );

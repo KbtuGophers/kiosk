@@ -1,8 +1,6 @@
 package http
 
 import (
-	"database/sql"
-	"fmt"
 	"github.com/KbtuGophers/kiosk/account/internal/domain/secret"
 	"github.com/KbtuGophers/kiosk/account/internal/service/otp"
 	"github.com/KbtuGophers/kiosk/account/pkg/server/status"
@@ -50,13 +48,7 @@ func (o *OtpHandler) GetOtp(w http.ResponseWriter, r *http.Request) {
 	//}
 
 	res, err := o.otpService.Create(r.Context(), req)
-	if err != nil && err == sql.ErrNoRows {
-		//render.JSON(w, r, status.BadRequest(err, req))
-		httpResponse = status.NotFoundError(err)
-		httpResponse.Render(w, r)
-		render.JSON(w, r, httpResponse)
-		return
-	} else if err != nil {
+	if err != nil {
 		httpResponse = status.InternalServerError(err)
 		httpResponse.Render(w, r)
 		render.JSON(w, r, httpResponse)
@@ -81,27 +73,38 @@ func (o *OtpHandler) CheckOtp(w http.ResponseWriter, r *http.Request) {
 
 	res, err := o.otpService.Check(r.Context(), req)
 	if err != nil {
+
 		httpResponse = status.BadRequest(err, req)
 		httpResponse.Render(w, r)
 		render.JSON(w, r, httpResponse)
 		return
 	}
 
-	accountInfo, err := o.otpService.GetAccountByPhone(res.PhoneNumber)
-	fmt.Println(res.PhoneNumber)
-	if err != nil {
-		httpResponse = status.InternalServerError(err)
-		httpResponse.Render(w, r)
-		render.JSON(w, r, httpResponse)
-		return
-	}
+	accountInfo, _ := o.otpService.GetAccountByPhone(res.PhoneNumber)
+	//fmt.Println(res.PhoneNumber)
+	//if err != nil {
+	//	httpResponse = status.InternalServerError(err)
+	//	httpResponse.Render(w, r)
+	//	render.JSON(w, r, httpResponse)
+	//	return
+	//}
+	//
+	//fmt.Println(accountInfo)
+	//
 
-	if err = o.otpService.InsertActivities(accountInfo.ID); err != nil {
-		httpResponse = status.InternalServerError(err)
-		httpResponse.Render(w, r)
-		render.JSON(w, r, httpResponse)
-		return
-	}
+	//if accountInfo.ID == "" {
+	//	httpResponse = status.InternalServerError(errors.New("account id is invalid"))
+	//	httpResponse.Render(w, r)
+	//	render.JSON(w, r, httpResponse)
+	//	return
+	//}
+	//
+	//if err = o.otpService.InsertActivities(accountInfo.ID); err != nil {
+	//	httpResponse = status.InternalServerError(err)
+	//	httpResponse.Render(w, r)
+	//	render.JSON(w, r, httpResponse)
+	//	return
+	//}
 
 	httpResponse = status.OK(accountInfo)
 	httpResponse.Render(w, r)

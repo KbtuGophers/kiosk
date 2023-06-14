@@ -51,6 +51,7 @@ func WithHTTPHandler() Configuration {
 		docs.SwaggerInfo.BasePath = "/api/v1"
 		docs.SwaggerInfo.Host = h.dependencies.Configs.HTTP.Host
 		docs.SwaggerInfo.Schemes = []string{h.dependencies.Configs.HTTP.Schema}
+		docs.SwaggerInfo.Title = "Account Service"
 
 		swaggerURL := url.URL{
 			Scheme: h.dependencies.Configs.HTTP.Schema,

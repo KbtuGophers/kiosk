@@ -161,9 +161,22 @@ func (o *OtpRepository) GetAccountByPhone(phone string) (user.Entity, error) {
 
 func (o *OtpRepository) CheckForActivities(data activity.Entity) error {
 	query := `
-		INSERT INTO user_activities (account_id, activity, timestamp) VALUES ($1, $2, $3)
+		INSERT INTO user_activities (account_id, activity) VALUES ($1, $2)
     `
-	args := []any{data.AccountId, data.Activity, data.Timestamp}
+	args := []any{data.AccountId, data.Activity}
+	if _, err := o.db.Exec(query, args...); err != nil {
+		return err
+	}
+
+	return nil
+
+}
+
+func (o *OtpRepository) CreateDefaultAccount(id, phone string) error {
+	query := `
+		INSERT INTO accounts (id, user_name, phone_number, account_type_id) VALUES ($1, $2, $3, $4)
+    `
+	args := []any{id, phone, phone, 2}
 	if _, err := o.db.Exec(query, args...); err != nil {
 		return err
 	}

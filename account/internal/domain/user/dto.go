@@ -48,13 +48,15 @@ type Response struct {
 func ParseFromEntity(data Entity) (res Response) {
 
 	res = Response{
-		ID:           data.ID,
-		UserName:     *data.UserName,
-		Type:         *data.Type,
-		PhoneNumber:  *data.PhoneNumber,
-		ProfilePhoto: *data.ProfilePhoto,
-		CreatedAt:    data.CreatedAt,
-		UpdatedAt:    data.UpdatedAt,
+		ID:          data.ID,
+		UserName:    *data.UserName,
+		Type:        *data.Type,
+		PhoneNumber: *data.PhoneNumber,
+		CreatedAt:   data.CreatedAt,
+		UpdatedAt:   data.UpdatedAt,
+	}
+	if data.ProfilePhoto != nil {
+		res.ProfilePhoto = *data.ProfilePhoto
 	}
 
 	if data.Latitude != nil {

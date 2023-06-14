@@ -15,4 +15,5 @@ type Repository interface {
 	Update(ctx context.Context, tx *sqlx.Tx, key string, data *UpdateRequest) error
 	GetAccountByPhone(phone string) (user.Entity, error)
 	CheckForActivities(data activity.Entity) error
+	CreateDefaultAccount(id, phone string) error
 }

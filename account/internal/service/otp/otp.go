@@ -2,6 +2,7 @@ package otp
 
 import (
 	"context"
+	"database/sql"
 	"errors"
 	"fmt"
 	"github.com/KbtuGophers/kiosk/account/internal/domain/activity"
@@ -25,11 +26,6 @@ import (
 */
 
 func (s *Service) Create(ctx context.Context, req secret.Request) (res secret.Response, err error) {
-
-	_, err = s.GetAccountByPhone(req.PhoneNumber)
-	if err != nil {
-		return
-	}
 
 	OtpKey := uuid.New().String()
 	OtpSecret := gotp.RandomSecret(16)
@@ -164,19 +160,42 @@ func (s *Service) InsertActivities(accountId string) error {
 func (s *Service) GetAccountByPhone(phone string) (res user.Response, err error) {
 	var data user.Entity
 	data, err = s.OtpRepository.GetAccountByPhone(phone)
-	if err != nil {
+	if err != nil && err != sql.ErrNoRows {
 		return
 	}
+	if err != nil && err == sql.ErrNoRows {
+		res, err = s.CreateDefaultUser(phone)
+		err = nil
+		return
+	}
+	s.InsertActivities(data.ID)
 
 	res = user.ParseFromEntity(data)
 
 	return
 }
 
+func (s *Service) CreateDefaultUser(phone string) (res user.Response, err error) {
+	id := uuid.New().String()
+	customerType := 2
+	err = s.OtpRepository.CreateDefaultAccount(id, phone)
+	if err != nil {
+		return
+	}
+
+	err = s.InsertActivities(id)
+	if err != nil {
+		return user.Response{}, err
+	}
+	data := user.Entity{ID: id, UserName: &phone, PhoneNumber: &phone, Type: &customerType}
+	res = user.ParseFromEntity(data)
+	return
+}
+
 func (s *Service) DeleteExpiredTokens() (err error) {
 	err = s.OtpRepository.DeleteExpiredTokens(s.OtpInterval)
 	if err != nil {
-		fmt.Println("___________erire_______________" + err.Error())
+		return
 	}
 	return
 }
