@@ -4,6 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"net/http"
+	"strconv"
 	"strings"
 
 	"github.com/jmoiron/sqlx"
@@ -22,25 +24,48 @@ func NewProductRepository(db *sqlx.DB) *ProductRepository {
 	}
 }
 
-func (s *ProductRepository) Select(ctx context.Context) (dest []product.Entity, err error) {
-	query := `
-		SELECT id, category_id, barcode, name, measure, producer_country, brand_name, description, image, is_weighted
-		FROM products
-		ORDER BY id`
+func (s *ProductRepository) Select(ctx context.Context, r *http.Request) (dest []product.Entity, err error) {
+	filters, args := s.prepareFilters(r)
+	query := fmt.Sprintf(`SELECT id, category_id, barcode, name, measure, cost, producer_country, brand_name, description, image, is_weighted `+
+		`FROM products WHERE %s`, strings.Join(filters, " "))
+	query += " 1=1"
+
+	fmt.Println(query, args)
 
 	dest = make([]product.Entity, 0)
-	err = s.db.SelectContext(ctx, &dest, query)
+	err = s.db.SelectContext(ctx, &dest, query, args...)
 
+	return
+}
+
+func (s *ProductRepository) prepareFilters(r *http.Request) (filters []string, args []any) {
+	priceGTEFilter, err := strconv.Atoi(r.URL.Query().Get("cost_gte"))
+	if err == nil {
+		args = append(args, priceGTEFilter)
+		filters = append(filters, fmt.Sprintf("cost >= $%d AND", len(args)))
+	}
+
+	priceLTEFilter, err := strconv.Atoi(r.URL.Query().Get("cost_lte"))
+	if err == nil {
+		args = append(args, priceLTEFilter)
+		filters = append(filters, fmt.Sprintf("cost <= $%d AND", len(args)))
+	}
+
+	searchFilter := strings.ToLower(r.URL.Query().Get("search"))
+	if searchFilter != "" {
+		args = append(args, "%"+searchFilter+"%")
+		filters = append(filters, fmt.Sprintf("name LIKE $%d AND", len(args)))
+	}
 	return
 }
 
 func (s *ProductRepository) Create(ctx context.Context, data product.Entity) (id string, err error) {
 	query := `
-		INSERT INTO products (id,category_id, barcode, name, measure, producer_country, brand_name, description, image, is_weighted)
-		VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+		INSERT INTO products (id,category_id, barcode, name, measure, cost, producer_country, brand_name, description, image, is_weighted)
+		VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
 		RETURNING id`
 
-	args := []any{data.ID, data.CategoryID, data.Barcode, data.Name, data.Measure, data.ProducerCountry,
+	args := []any{data.ID, data.CategoryID, data.Barcode, data.Name, data.Measure, data.Cost, data.ProducerCountry,
 		data.BrandName, data.Description, data.Image, data.IsWeighted}
 
 	err = s.db.QueryRowContext(ctx, query, args...).Scan(&id)
@@ -50,7 +75,7 @@ func (s *ProductRepository) Create(ctx context.Context, data product.Entity) (id
 
 func (s *ProductRepository) Get(ctx context.Context, id string) (dest product.Entity, err error) {
 	query := `
-		SELECT id, category_id, barcode, name, measure, producer_country, brand_name, description, image, is_weighted
+		SELECT id, category_id, barcode, name, measure, cost, producer_country, brand_name, description, image, is_weighted
 		FROM products
 		WHERE id=$1`
 
@@ -95,6 +120,11 @@ func (s *ProductRepository) prepareArgs(data product.Entity) (sets []string, arg
 	if data.Measure != nil {
 		args = append(args, data.Measure)
 		sets = append(sets, fmt.Sprintf("measure=$%d", len(args)))
+	}
+
+	if data.Cost != nil {
+		args = append(args, data.Cost)
+		sets = append(sets, fmt.Sprintf("cost=$%d", len(args)))
 	}
 
 	if data.ProducerCountry != nil {

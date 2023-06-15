@@ -11,6 +11,7 @@ type Request struct {
 	Barcode         string `json:"barcode"`
 	Name            string `json:"name"`
 	Measure         string `json:"measure"`
+	Cost            int    `json:"cost"`
 	ProducerCountry string `json:"producer_country"`
 	BrandName       string `json:"brand_name"`
 	Description     string `json:"description"`
@@ -35,6 +36,7 @@ type Response struct {
 	Barcode         string `json:"barcode"`
 	Name            string `json:"name"`
 	Measure         string `json:"measure"`
+	Cost            int    `json:"cost"`
 	ProducerCountry string `json:"producer_country"`
 	BrandName       string `json:"brand_name"`
 	Description     string `json:"description"`
@@ -49,6 +51,7 @@ func ParseFromEntity(data Entity) (res Response) {
 		Barcode:         *data.Barcode,
 		Name:            *data.Name,
 		Measure:         *data.Measure,
+		Cost:            *data.Cost,
 		ProducerCountry: *data.ProducerCountry,
 		BrandName:       *data.BrandName,
 		Description:     *data.Description,

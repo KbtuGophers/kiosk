@@ -50,13 +50,10 @@ func (s *CategoryRepository) GetChilds(ctx context.Context, id string) (dest []c
 		FROM categories
 		WHERE parent_id=$1
 	`
-	args := []any{id}
 
-	err = s.db.SelectContext(ctx, &dest, query, args)
+	err = s.db.SelectContext(ctx, &dest, query, id)
 
-	for i, _ := range dest {
-		*dest[i].Child, _ = s.GetChilds(ctx, dest[i].ID)
-	}
+	fmt.Println(err)
 
 	return
 }
@@ -77,10 +74,7 @@ func (s *CategoryRepository) Get(ctx context.Context, id string) (dest category.
 		err = store.ErrorNotFound
 	}
 
-	childs, _ := s.GetChilds(ctx, id)
-	for _, child := range childs {
-		*dest.Child = append(*dest.Child, child)
-	}
+	dest.Child, _ = s.GetChilds(ctx, id)
 
 	return
 }

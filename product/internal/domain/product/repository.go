@@ -1,9 +1,12 @@
 package product
 
-import "context"
+import (
+	"context"
+	"net/http"
+)
 
 type Repository interface {
-	Select(ctx context.Context) (dest []Entity, err error)
+	Select(ctx context.Context, r *http.Request) (dest []Entity, err error)
 	Create(ctx context.Context, data Entity) (id string, err error)
 	Get(ctx context.Context, id string) (dest Entity, err error)
 	Update(ctx context.Context, id string, data Entity) (err error)

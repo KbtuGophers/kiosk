@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS products
     barcode         VARCHAR NOT NULL UNIQUE ,
     name        varchar NOT NULL,
     measure    VARCHAR,
+    cost int,
     producer_country   VARCHAR,
     brand_name VARCHAR NOT NULL,
     description TEXT NOT NULL,

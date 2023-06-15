@@ -2,6 +2,7 @@ package service
 
 import (
 	"context"
+	"fmt"
 	"github.com/google/uuid"
 	"product/internal/domain/category"
 )
@@ -36,13 +37,19 @@ func (s *Service) GetCategory(ctx context.Context, id string) (res category.Resp
 	if err != nil {
 		return
 	}
-	res = category.ParseFromEntity(data)
+	fmt.Println(data.Child)
+	res = category.Response{
+		ID:     data.ID,
+		Name:   *data.Name,
+		Childs: category.ParseFromEntities(data.Child),
+	}
 
 	return
 }
 
 func (s *Service) UpdateCategory(ctx context.Context, id string, req category.Request) (err error) {
 	data := category.Entity{
+		ID:       id,
 		ParentId: &req.ParentId,
 		Name:     &req.Name,
 	}

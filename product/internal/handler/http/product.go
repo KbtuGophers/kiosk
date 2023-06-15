@@ -43,7 +43,7 @@ func (h *ProductHandler) Routes() chi.Router {
 //	@Failure	500			{object}	status.Response
 //	@Router		/products 	[get]
 func (h *ProductHandler) list(w http.ResponseWriter, r *http.Request) {
-	res, err := h.Service.ListProduct(r.Context())
+	res, err := h.Service.ListProduct(r.Context(), r)
 	if err != nil {
 		render.JSON(w, r, status.InternalServerError(err))
 		return

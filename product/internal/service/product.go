@@ -3,11 +3,12 @@ package service
 import (
 	"context"
 	"github.com/google/uuid"
+	"net/http"
 	"product/internal/domain/product"
 )
 
-func (s *Service) ListProduct(ctx context.Context) (res []product.Response, err error) {
-	data, err := s.productRepository.Select(ctx)
+func (s *Service) ListProduct(ctx context.Context, r *http.Request) (res []product.Response, err error) {
+	data, err := s.productRepository.Select(ctx, r)
 	if err != nil {
 		return
 	}
@@ -23,6 +24,7 @@ func (s *Service) AddProduct(ctx context.Context, req product.Request) (res prod
 		Barcode:         &req.Barcode,
 		Name:            &req.Name,
 		Measure:         &req.Measure,
+		Cost:            &req.Cost,
 		ProducerCountry: &req.ProducerCountry,
 		BrandName:       &req.BrandName,
 		Description:     &req.Description,
@@ -51,10 +53,12 @@ func (s *Service) GetProduct(ctx context.Context, id string) (res product.Respon
 
 func (s *Service) UpdateProduct(ctx context.Context, id string, req product.Request) (res product.Response, err error) {
 	data := product.Entity{
+		ID:              id,
 		CategoryID:      &req.CategoryID,
 		Barcode:         &req.Barcode,
 		Name:            &req.Name,
 		Measure:         &req.Measure,
+		Cost:            &req.Cost,
 		ProducerCountry: &req.ProducerCountry,
 		BrandName:       &req.BrandName,
 		Description:     &req.Description,

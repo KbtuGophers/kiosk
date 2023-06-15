@@ -19,10 +19,10 @@ func (s *Request) Bind(r *http.Request) error {
 }
 
 type Response struct {
-	ID       string   `json:"id"`
-	Name     string   `json:"name"`
-	ParentId string   `json:"parent_id"`
-	Childs   []Entity `json:"childs"`
+	ID       string     `json:"id"`
+	Name     string     `json:"name"`
+	ParentId string     `json:"parent_id"`
+	Childs   []Response `json:"childs"`
 }
 
 func ParseFromEntity(data Entity) (res Response) {
@@ -30,7 +30,6 @@ func ParseFromEntity(data Entity) (res Response) {
 		ID:       data.ID,
 		Name:     *data.Name,
 		ParentId: *data.ParentId,
-		Childs:   *data.Child,
 	}
 	return
 }
