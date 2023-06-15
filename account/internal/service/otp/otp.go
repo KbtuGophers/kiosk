@@ -2,14 +2,15 @@ package otp
 
 import (
 	"context"
+	"database/sql"
 	"errors"
 	"fmt"
+	"github.com/KbtuGophers/kiosk/account/internal/domain/activity"
 	"github.com/KbtuGophers/kiosk/account/internal/domain/secret"
+	"github.com/KbtuGophers/kiosk/account/internal/domain/user"
 	"github.com/google/uuid"
 	"github.com/jmoiron/sqlx"
-	openapi "github.com/twilio/twilio-go/rest/api/v2010"
 	"github.com/xlzd/gotp"
-	"strconv"
 	"time"
 )
 
@@ -37,6 +38,7 @@ func (s *Service) Create(ctx context.Context, req secret.Request) (res secret.Re
 		Status:      1,
 		PhoneNumber: &req.PhoneNumber,
 		SendAt:      time.Now().Unix(),
+		DebugMode:   req.DebugMode,
 	}
 
 	err = s.OtpRepository.Create(ctx, data)
@@ -46,18 +48,24 @@ func (s *Service) Create(ctx context.Context, req secret.Request) (res secret.Re
 
 	if req.DebugMode == true {
 		data.Code = &code
-	} else {
-		params := &openapi.CreateMessageParams{}
-		params.SetTo(req.PhoneNumber)
-		params.SetBody("Your code: " + code)
 
-		_, err = s.client.Api.CreateMessage(params)
+	} else {
+		//params := &openapi.CreateMessageParams{}
+		//params.SetTo(req.PhoneNumber)
+		//params.SetBody("Your code: " + code)
+		//
+		//_, err = s.client.Api.CreateMessage(params)
+		//if err != nil {
+		//	return
+		//}
+
+		message := fmt.Sprintf("Пароль авторизации:%s", code)
+		//fmt.Println(message)
+		_, err = s.client.SendSms(message, req.PhoneNumber)
 		if err != nil {
 			return
 		}
-
 	}
-
 	res = secret.ParseFromEntity(data)
 
 	return
@@ -68,7 +76,7 @@ func (s *Service) GetByKey(ctx context.Context, key string) (res secret.Response
 	//fmt.Println("GetByKey: ", s.OtpRepository)
 	data, err := s.OtpRepository.GetByKey(ctx, key)
 	if err != nil {
-		fmt.Println("errorrrrr")
+		//fmt.Println("errorrrrr")
 		return
 	}
 
@@ -76,38 +84,37 @@ func (s *Service) GetByKey(ctx context.Context, key string) (res secret.Response
 	return
 }
 
-func (s *Service) GetById(ctx context.Context, req secret.Request) (res secret.Response, err error) {
+func (s *Service) Check(ctx context.Context, req secret.Request) (res secret.Response, err error) {
 	reqTime := time.Now().Unix()
-	updReq := secret.UpdateRequest{}
-
+	updReq := &secret.UpdateRequest{}
 	//fmt.Println("Key: ", req.Key)
-
-	res, err = s.GetByKey(ctx, req.Key)
+	var data secret.Entity
+	data, err = s.OtpRepository.GetByKey(ctx, req.Key)
 	if err != nil {
 		return
 	}
 	//check status
-	if res.Status != 1 {
+	if data.Status != 1 {
 		err = errors.New("otp is invalid")
 		return
 	}
 
 	//check if time expired
-	if reqTime-res.SendAt > int64(s.OtpInterval) {
+	if reqTime-data.SendAt > int64(s.OtpInterval) {
 		updReq.Status = 0
 		err = errors.New("otp time is expired")
 		return
 	}
 
 	//check attempts
-	res.Attempts += 1
-	if res.Attempts > s.OtpAttempts {
+	data.Attempts += 1
+	if data.Attempts > s.OtpAttempts {
 		updReq.Status = 0
-		err = errors.New(fmt.Sprintf("attempted %s times", res.Attempts))
+		err = errors.New(fmt.Sprintf("attempted %s times", data.Attempts))
 		return
 	}
 
-	valid := gotp.NewTOTP(res.Secret, 4, s.OtpInterval, nil).Verify(req.Code, res.SendAt)
+	valid := gotp.NewTOTP(*data.Secret, 4, s.OtpInterval, nil).Verify(req.Code, data.SendAt)
 	if !valid {
 		err = errors.New("code is invalid")
 		return
@@ -116,27 +123,79 @@ func (s *Service) GetById(ctx context.Context, req secret.Request) (res secret.R
 		updReq.ConfirmedAt = time.Now().Unix()
 	}
 
-	if res.Attempts < s.OtpAttempts {
-		updReq.Attempts = res.Attempts
+	if data.Attempts < s.OtpAttempts {
+		updReq.Attempts = data.Attempts
 
 		var unlock func()
 		var reqTX *sqlx.Tx
-		unlock, reqTX, err = s.OtpRepository.Lock(ctx, res.Key)
+		unlock, reqTX, err = s.OtpRepository.Lock(ctx, *data.Key)
 		if err != nil {
 			return
 		}
 		defer unlock()
-		err = s.OtpRepository.Update(ctx, reqTX, res.Key, updReq)
+		err = s.OtpRepository.Update(ctx, reqTX, *data.Key, updReq)
+
 		if err != nil {
 			return
 		}
+
 	}
 
-	fmt.Println("GetById is finished")
+	res = secret.ParseFromEntity(data)
+
+	//fmt.Println("GetById is finished")
 	return
 
 }
 
-func (s *Service) DeleteExpiredTokens(ctx context.Context) {
-	s.OtpRepository.DeleteExpiredTokens(strconv.Itoa(s.OtpInterval))
+func (s *Service) InsertActivities(accountId string) error {
+	data := activity.Entity{Activity: "LOGIN", AccountId: accountId}
+	if err := s.OtpRepository.CheckForActivities(data); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (s *Service) GetAccountByPhone(phone string) (res user.Response, err error) {
+	var data user.Entity
+	data, err = s.OtpRepository.GetAccountByPhone(phone)
+	if err != nil && err != sql.ErrNoRows {
+		return
+	}
+	if err != nil && err == sql.ErrNoRows {
+		res, err = s.CreateDefaultUser(phone)
+		err = nil
+		return
+	}
+	s.InsertActivities(data.ID)
+
+	res = user.ParseFromEntity(data)
+
+	return
+}
+
+func (s *Service) CreateDefaultUser(phone string) (res user.Response, err error) {
+	id := uuid.New().String()
+	customerType := 2
+	err = s.OtpRepository.CreateDefaultAccount(id, phone)
+	if err != nil {
+		return
+	}
+
+	err = s.InsertActivities(id)
+	if err != nil {
+		return user.Response{}, err
+	}
+	data := user.Entity{ID: id, UserName: &phone, PhoneNumber: &phone, Type: &customerType}
+	res = user.ParseFromEntity(data)
+	return
+}
+
+func (s *Service) DeleteExpiredTokens() (err error) {
+	err = s.OtpRepository.DeleteExpiredTokens(s.OtpInterval)
+	if err != nil {
+		return
+	}
+	return
 }

@@ -8,4 +8,6 @@ type Repository interface {
 	Get(ctx context.Context, id string) (dest Entity, err error)
 	Update(ctx context.Context, id string, data Entity) (err error)
 	Delete(ctx context.Context, id string) (err error)
+	InsertType(accountType Types) (int, error)
+	List(ctx context.Context) (dest []Entity, err error)
 }

@@ -15,13 +15,14 @@ const (
 	defaultHTTPWriteTimeout       = 15 * time.Second
 	defaultHTTPIdleTimeout        = 60 * time.Second
 	defaultHTTPMaxHeaderMegabytes = 1
+	defaultHTTPSchema             = "http"
 )
 
 type (
 	Config struct {
 		HTTP     HTTPConfig
 		POSTGRES DatabaseConfig
-		TWILIO   TwilioConfig
+		SMSC     SMSCConfig
 		OTP      OTPConfig
 	}
 
@@ -30,10 +31,10 @@ type (
 		Interval string
 	}
 
-	TwilioConfig struct {
-		Username string
+	SMSCConfig struct {
+		Login    string
 		Password string
-		Sid      string
+		Sender   string
 	}
 
 	HTTPConfig struct {
@@ -43,6 +44,7 @@ type (
 		WriteTimeout       time.Duration
 		IdleTimeout        time.Duration
 		MaxHeaderMegabytes int
+		Schema             string
 	}
 
 	ClientConfig struct {
@@ -64,19 +66,17 @@ func New() (cfg Config, err error) {
 		return
 	}
 
+	godotenv.Load(filepath.Join(root, ".env"))
+
 	httpConfig := HTTPConfig{
 		Port:               defaultHTTPPort,
 		ReadTimeout:        defaultHTTPReadTimeout,
 		WriteTimeout:       defaultHTTPWriteTimeout,
 		IdleTimeout:        defaultHTTPIdleTimeout,
 		MaxHeaderMegabytes: defaultHTTPMaxHeaderMegabytes,
+		Schema:             defaultHTTPSchema,
 	}
 	cfg.HTTP = httpConfig
-
-	err = godotenv.Load(filepath.Join(root, ".env"))
-	if err != nil {
-		return
-	}
 
 	err = envconfig.Process("HTTP", &cfg.HTTP)
 	if err != nil {
@@ -88,7 +88,7 @@ func New() (cfg Config, err error) {
 	//	return
 	//}
 
-	err = envconfig.Process("TWILIO", &cfg.TWILIO)
+	err = envconfig.Process("SMSC", &cfg.SMSC)
 	if err != nil {
 		return
 	}

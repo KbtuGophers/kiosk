@@ -219,3 +219,417 @@
 {"level":"info","ts":1686249279.0052037,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
 {"level":"warn","ts":1686249312.6632814,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
 {"level":"info","ts":1686249312.7451196,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686297236.753184,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686297236.9276712,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686297645.8908448,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686297645.9772136,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686297671.7929041,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686297671.8800247,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686297718.384303,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686297718.5848317,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686297743.4862373,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686297743.6774213,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686297928.257092,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686297928.4547246,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686297952.3714838,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686297952.4513192,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686298113.530451,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686298113.6110373,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686298232.7830133,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686298232.967503,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686298308.7374651,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686298308.814712,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686298332.1629896,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686298332.238621,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686298351.5467439,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686298351.8357916,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686298441.7416048,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686298441.8201702,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686298475.2866173,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686298475.4639225,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686298542.856564,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686298543.048056,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686298669.031021,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686298669.2260678,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686298889.6313043,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686298889.819316,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686298923.6964204,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686298923.7774203,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686298966.8897448,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686298966.9738066,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686299421.115097,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686299421.2060304,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686299513.6829896,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686299513.7723858,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686299729.9904823,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686299730.1789799,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686300238.1169686,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686300238.2065356,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686300287.397161,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686300287.479498,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686300393.371825,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686300393.4592113,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686300445.9411986,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686300446.0368652,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686300520.899718,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686300521.105194,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686300715.2568438,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686300715.3382547,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686300858.2292247,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686300858.306062,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686300966.5614877,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686300966.7475498,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686301062.0299056,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686301062.1104841,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686301122.3592563,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686301122.444006,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686301326.9061172,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686301326.9952354,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686301476.1256018,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686301476.2121818,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686301766.8917484,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686301766.9727821,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686307533.3903959,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686307533.6144211,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686308317.1145294,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686308317.304537,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686311777.069584,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686311777.1907322,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686311840.78495,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686311840.8674529,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686311913.9390264,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686311914.0173886,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686312134.175436,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686312134.2531223,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686312252.716759,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686312252.8086793,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686312357.1285758,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686312357.2059727,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686312436.549629,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686312436.6280534,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686312516.3972871,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686312516.5039337,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686312640.6765482,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686312640.9730375,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686312793.4249113,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686312793.5048964,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686313095.4012268,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686313095.4778688,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686313165.4986787,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686313165.579976,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686313234.4605243,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686313234.5386968,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686313346.9691825,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686313347.2580166,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686313492.4215617,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686313492.5243635,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686318226.4564552,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686318226.573713,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686318357.1488035,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686318357.2370505,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686318381.6109848,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686318381.7004092,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686318420.5314775,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686318420.7274265,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686318481.3990116,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686318481.4808078,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686318521.549025,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686318521.6290076,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686318588.5248213,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686318588.6078541,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686318751.5636485,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686318751.759326,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686322094.811646,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686322094.9923637,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686323141.8187368,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686323142.039627,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686324200.6664436,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686324200.7670121,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686370255.0765238,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"error","ts":1686370255.2147224,"caller":"app/app.go:41","msg":"ERR_INIT_REPOSITORY","error":"migration failed: syntax error at or near \")\" in line 0: \r\nCREATE TABLE IF NOT EXISTS account_types\r\n(\r\n    created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\r\n    updated_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\r\n    id           SERIAL PRIMARY KEY,\r\n    name         VARCHAR NOT NULL\r\n);\r\n\r\nCREATE TABLE IF NOT EXISTS accounts\r\n(\r\n    created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\r\n    updated_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\r\n    id           VARCHAR PRIMARY KEY,\r\n    user_name    VARCHAR NOT NULL,\r\n    phone_number    VARCHAR NOT NULL UNIQUE ,\r\n    account_type_id int NOT NULL ,\r\n    profile_photo VARCHAR NOT NULL,\r\n--     FOREIGN KEY (account_type_id) REFERENCES account_types (id)\r\n\r\n);\r\n\r\n (details: pq: syntax error at or near \")\")","stacktrace":"github.com/KbtuGophers/kiosk/account/internal/app.Run\n\tC:/Development/kiosk/account/internal/app/app.go:41\nmain.main\n\tC:/Development/kiosk/account/main.go:6\nruntime.main\n\tC:/Program Files/Go/src/runtime/proc.go:250"}
+{"level":"warn","ts":1686370299.1367521,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"error","ts":1686370299.2367592,"caller":"app/app.go:41","msg":"ERR_INIT_REPOSITORY","error":"Dirty database version 1. Fix and force version.","stacktrace":"github.com/KbtuGophers/kiosk/account/internal/app.Run\n\tC:/Development/kiosk/account/internal/app/app.go:41\nmain.main\n\tC:/Development/kiosk/account/main.go:6\nruntime.main\n\tC:/Program Files/Go/src/runtime/proc.go:250"}
+{"level":"warn","ts":1686370306.6444848,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"error","ts":1686370306.7304666,"caller":"app/app.go:41","msg":"ERR_INIT_REPOSITORY","error":"Dirty database version 1. Fix and force version.","stacktrace":"github.com/KbtuGophers/kiosk/account/internal/app.Run\n\tC:/Development/kiosk/account/internal/app/app.go:41\nmain.main\n\tC:/Development/kiosk/account/main.go:6\nruntime.main\n\tC:/Program Files/Go/src/runtime/proc.go:250"}
+{"level":"warn","ts":1686370334.9339714,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"error","ts":1686370335.027484,"caller":"app/app.go:41","msg":"ERR_INIT_REPOSITORY","error":"Dirty database version 1. Fix and force version.","stacktrace":"github.com/KbtuGophers/kiosk/account/internal/app.Run\n\tC:/Development/kiosk/account/internal/app/app.go:41\nmain.main\n\tC:/Development/kiosk/account/main.go:6\nruntime.main\n\tC:/Program Files/Go/src/runtime/proc.go:250"}
+{"level":"warn","ts":1686370358.4492514,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"error","ts":1686370358.5465953,"caller":"app/app.go:41","msg":"ERR_INIT_REPOSITORY","error":"Dirty database version 1. Fix and force version.","stacktrace":"github.com/KbtuGophers/kiosk/account/internal/app.Run\n\tC:/Development/kiosk/account/internal/app/app.go:41\nmain.main\n\tC:/Development/kiosk/account/main.go:6\nruntime.main\n\tC:/Program Files/Go/src/runtime/proc.go:250"}
+{"level":"warn","ts":1686370412.9335237,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"error","ts":1686370413.022858,"caller":"app/app.go:41","msg":"ERR_INIT_REPOSITORY","error":"Dirty database version 1. Fix and force version.","stacktrace":"github.com/KbtuGophers/kiosk/account/internal/app.Run\n\tC:/Development/kiosk/account/internal/app/app.go:41\nmain.main\n\tC:/Development/kiosk/account/main.go:6\nruntime.main\n\tC:/Program Files/Go/src/runtime/proc.go:250"}
+{"level":"warn","ts":1686370600.795936,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686370600.9851618,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686371920.587443,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686371920.7810068,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686371961.122749,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686371961.308018,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686372274.7108262,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686372274.8030052,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686373115.5108356,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686373115.7074368,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686373145.2280984,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686373145.4974656,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686373413.6986923,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686373413.7997499,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686373725.4326313,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686373725.5157375,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686373798.5197225,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686373798.6052241,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686373866.219809,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686373866.4169605,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686373899.2265506,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686373899.310087,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686373962.039195,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686373962.2290893,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686550903.4218369,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"error","ts":1686550903.427817,"caller":"app/app.go:35","msg":"ERR_INIT_CONFIG","error":"unexpected character \"<\" in variable name near \"<<<<<<< HEAD\\nPOSTGRES_DSN='postgres://postgres:postgres@localhost:5432/hh_project?sslmode=disable'\\n=======\\nPOSTGRES_DSN=''\\n>>>>>>> 548a940335d608d8117884f086ea7e4b79b41a04\\n\\nOTP_INTERVAL=''\\nOTP_ATTEMPTS=''\\n\\n\\n\\n<<<<<<< HEAD\\nTWILIO_USERNAME=AC5bd754500e8706d2e7ff1cf477499d6f\\nTWILIO_PASSWORD=e4e77221e0206629e6e1d636556af665\\nTWILIO_SERVICE_SID=AC5bd754500e8706d2e7ff1cf477499d6f\\n=======\\nTWILIO_USERNAME=\\nTWILIO_PASSWORD=\\n>>>>>>> 548a940335d608d8117884f086ea7e4b79b41a04\\n\"","stacktrace":"github.com/KbtuGophers/kiosk/account/internal/app.Run\n\tC:/Development/kiosk/account/internal/app/app.go:35\nmain.main\n\tC:/Development/kiosk/account/main.go:6\nruntime.main\n\tC:/Program Files/Go/src/runtime/proc.go:250"}
+{"level":"warn","ts":1686550948.1092446,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686550948.3567867,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686563012.24986,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686563012.3596,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686563391.9090312,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686563391.982648,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686563582.612082,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686563582.687133,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686563662.4530165,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686563662.5308933,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686563692.7888653,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686563692.9708912,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686564409.3898063,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686564409.464717,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686564528.2764754,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686564528.353908,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686564660.3748908,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686564660.5606954,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686564695.1250494,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686564695.3081944,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686564966.5550547,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686564966.7498052,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686565005.4484763,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686565005.525774,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686565221.2462144,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686565221.3370702,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686565308.7421987,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686565308.8256123,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686565473.8576682,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686565474.043001,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686565586.7164054,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686565586.797631,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686565772.7082067,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686565772.8904665,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686565851.8034637,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686565851.9894714,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686566175.718928,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686566175.9086401,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686585833.8700144,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686585834.1963427,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686586193.290205,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686586193.4893098,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686586460.4343479,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686586460.6322103,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686586483.7236555,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686586483.9123752,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686586585.1575606,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686586585.3995109,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686586829.9774523,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686586830.1725829,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686587070.032518,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686587070.1206734,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686587099.084977,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686587099.1733792,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686587170.2812998,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686587170.3644886,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686588898.1163433,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686588898.3304915,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686589407.7681465,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686589407.9559622,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686589562.3917387,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686589562.6032512,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686589761.0535698,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686589761.2510629,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686589966.9895182,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686589967.075899,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686591235.6114106,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686591235.794683,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686591659.2885988,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686591659.3693702,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686592206.3260818,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686592206.4076595,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686594309.6963532,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686594309.8343794,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686638531.8805017,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686638532.028192,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686638573.8620527,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686638573.981865,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686640058.0748734,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686640058.218692,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686640189.5926988,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686640189.700342,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686640332.0899339,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686640332.1676922,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686640411.8580618,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686640412.075372,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686640594.7551,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686640594.8399458,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686640622.7111788,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686640622.8051765,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686641243.759025,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686641243.9534829,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686641491.3255582,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686641491.528028,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686641511.3305464,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686641511.5257924,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686641606.9886577,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686641607.2839909,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686641685.903346,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686641686.226446,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686641715.0369031,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686641715.1465986,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686641754.1047382,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686641754.227821,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686642076.7335284,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686642077.0290189,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686642159.759455,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686642159.8500192,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686642635.28528,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686642635.3672562,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686642830.4419577,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686642830.6425114,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686643300.3421764,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686643300.440172,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686643594.6170743,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686643594.879165,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686643666.6742296,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686643666.8117645,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686645451.7362275,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686645451.8843715,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686645524.3006842,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686645524.4045775,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686645649.247043,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686645649.3507977,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686648616.1681035,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686648616.3843448,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686648726.7799954,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686648726.9022658,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686648812.9246423,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686648813.135547,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686650277.7343302,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686650277.854753,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686650794.3356953,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686650794.4502716,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686650863.630022,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686650863.7121062,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686650947.6653032,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686650947.8710659,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686650991.5569508,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686650991.7221148,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686651057.9946563,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686651058.0744712,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686658207.3973377,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686658207.693811,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686658429.002075,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686658429.1078093,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686658517.9542923,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686658518.148399,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686658972.0210493,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686658972.1715903,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686659193.3095205,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686659193.3933303,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686659578.4881427,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686659578.728706,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686659612.878098,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686659613.0832312,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686659639.9978333,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686659640.1123924,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686659757.3090343,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686659757.3994606,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686659798.4166913,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686659798.6253684,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686659863.588705,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686659863.6798756,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686659898.138734,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686659898.228157,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686659932.176387,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686659932.309891,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686660071.8323073,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686660071.9342766,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686660139.9691556,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686660140.1606934,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686660347.518129,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686660347.7488658,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686660560.8236148,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686660560.9306724,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686660581.3320582,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686660581.5912333,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686660874.3210967,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686660874.5674758,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686675930.877126,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686675931.0614026,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686676237.4313037,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686676237.634824,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686676629.1050076,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686676629.315245,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686678661.2213929,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686678661.3654902,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686678737.3223689,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686678737.6358557,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686678776.8557327,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686678777.1561708,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686681267.4102852,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686681267.5400097,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686681324.3462648,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686681324.427077,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686681470.2606955,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686681470.8440678,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686681675.2792742,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686681675.471513,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686681872.4129055,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686681872.7606807,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686681975.6502647,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686681975.8406112,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686740888.4454408,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686740888.8042889,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686741920.754554,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686741920.8506985,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686743189.8062367,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686743189.8943698,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686743254.0764282,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686743254.1632812,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686743469.0091782,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686743469.3059418,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686743805.667008,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686743805.8418105,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686746331.1806285,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686746331.2841218,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686746953.9352193,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686746954.0159855,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686747510.0666327,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686747510.156693,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686747708.9828043,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686747709.1770442,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686747783.008684,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686747783.2930496,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686747819.4320004,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686747819.730939,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686747864.798245,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686747864.9914923,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686747887.665357,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686747887.9587805,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686748093.203277,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686748093.4109638,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686748503.7547066,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686748503.9523485,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686748652.706868,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686748652.7898622,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686748825.4730084,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686748825.6701522,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686749572.732947,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686749572.8456144,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686751726.9870052,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686751727.1002533,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686756533.188955,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686756533.3550198,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686756676.0358086,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686756676.145477,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
+{"level":"warn","ts":1686756926.3441868,"caller":"log/logger.go:36","msg":"Logger sync fail","error":"sync /dev/stdout: The handle is invalid."}
+{"level":"info","ts":1686756926.431436,"caller":"server/server.go:37","msg":"http server started on http://localhost:80"}
